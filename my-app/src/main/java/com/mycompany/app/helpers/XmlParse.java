@@ -37,7 +37,7 @@ public class XmlParse {
             e.printStackTrace();
             return;
         }
-        InputSource is = new InputSource(new StringReader(xmlString));     
+        InputSource is = new InputSource(new StringReader(xmlString));
         try {
             xmlDocument = builder.parse(is);
         } catch (SAXException | IOException e) {

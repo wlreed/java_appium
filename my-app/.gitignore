@@ -3,4 +3,5 @@ results/*
 apps/*
 .vscode
 target/*
+testDontRun/*
 

@@ -13,10 +13,6 @@ public class LoginTest extends BaseTest{
     private static final Logger LOG = LogManager.getLogger();
 
     @Test
-    public void APMServerTest() {
-        LOG.info("Server and iOS Driver started successfully!!");
-    }
-    @Test
     public void APMHomeScreenTest() throws Exception {
         HomeScreen hs = new HomeScreen();
         //Assert.assertTrue(homeScreen.validateScreen(homeScreen.elementMap.get("identifier")));
