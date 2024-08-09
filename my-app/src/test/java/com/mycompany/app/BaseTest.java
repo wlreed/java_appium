@@ -18,6 +18,6 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() {
-        quitSession ();
+        quitSession();
     }
 }

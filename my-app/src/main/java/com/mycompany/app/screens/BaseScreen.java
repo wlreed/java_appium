@@ -28,4 +28,8 @@ public class BaseScreen {
         LOG.debug("Clicking " + element.getText() + " element");
         element.click();
     }
+
+    public final void sendkeys(final WebElement element, final String string) {
+        element.sendKeys(string);
+    }
 }

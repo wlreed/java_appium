@@ -125,6 +125,7 @@ public final class APM {
             getDriver().quit();
             DRIVER.remove();
             stopServer();
+            uniqueInstance = null;
         }
     }
 
