@@ -12,12 +12,12 @@ import static com.mycompany.app.drivers.APM.quitSession;
  */
 public class BaseTest {
     @BeforeClass
-    public void testSetup()  {
+    public final void testSetup()  {
         getInstance();
     }
 
     @AfterClass
-    public void tearDown() {
+    public final void tearDown() {
         quitSession();
     }
 }

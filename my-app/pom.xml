@@ -66,6 +66,8 @@
             <version>3.0.0</version>
             <configuration>
                 <configLocation>checkstyle.xml</configLocation>
+                <testSourceDirectories>${project.build.testSourceDirectory}</testSourceDirectories>
+                <includeTestSourceDirectory>true</includeTestSourceDirectory>
             </configuration>
         </plugin>
     </plugins>

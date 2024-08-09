@@ -9,13 +9,14 @@ import com.mycompany.app.screens.LoginScreen;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
     private static final Logger LOG = LogManager.getLogger();
 
     @Test
-    public void APMHomeScreenTest() throws Exception {
+    public final void loginScreenTest() throws Exception {
         HomeScreen hs = new HomeScreen();
-        //Assert.assertTrue(homeScreen.validateScreen(homeScreen.elementMap.get("identifier")));
+        // Assert.assertTrue(
+        //     hs.validateScreen(hs.elementMap.get("identifier")));
         hs.click(hs.logInElement);
         LoginScreen ls = new LoginScreen();
         ls.click(ls.usernameElement);
