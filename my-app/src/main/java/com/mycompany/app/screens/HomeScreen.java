@@ -19,7 +19,7 @@ public class HomeScreen extends BaseScreen {
     public Map<String, String> elementMap = new HashMap<>();
 
     public HomeScreen() {
-        LOG.info("Initiating HomeScreen");
+        super();
         elementMap.put("identifier", "TheApp");
         xmlPageSource = APM.getDriver().getPageSource();
         pageSource = new XmlParse(xmlPageSource);

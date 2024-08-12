@@ -20,7 +20,7 @@ public class LoginScreen extends BaseScreen {
     public String defaultPassword = "mypassword";
 
     public LoginScreen() {
-        LOG.info("Initiating LoginScreen");
+        super();
         elementMap.put("identifier", "Login");
         xmlPageSource = APM.getDriver().getPageSource();
         pageSource = new XmlParse(xmlPageSource);

@@ -9,6 +9,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.apache.logging.log4j.LogManager;
@@ -26,6 +27,7 @@ public class XmlParse {
     private XPathFactory xpathfactory;
     private XPath xpath;
     private XPathExpression expr;
+    private Object result;
 
     public XmlParse(final String xmlString) {
         factory = DocumentBuilderFactory.newInstance();
@@ -47,11 +49,21 @@ public class XmlParse {
         }
     }
 
-    public final NodeList xPath(final String expression) throws Exception {
+    public final NodeList xPath(final String expression) {
         xpathfactory = XPathFactory.newInstance();
         xpath = xpathfactory.newXPath();
-        expr = xpath.compile(expression);
-        Object result = expr.evaluate(xmlDocument, XPathConstants.NODESET);
+        try {
+            expr = xpath.compile(expression);
+        } catch (XPathExpressionException e) {
+            LOG.warn("Problem with XPath expression");
+            e.printStackTrace();
+        }
+        try {
+            result = expr.evaluate(xmlDocument, XPathConstants.NODESET);
+        } catch (XPathExpressionException e) {
+            LOG.warn("Problem with XPath expression");
+            e.printStackTrace();
+        }
         NodeList nodes = (NodeList) result;
         return nodes;
     }
