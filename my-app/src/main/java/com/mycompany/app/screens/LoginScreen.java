@@ -7,14 +7,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.mycompany.app.drivers.APM;
-import com.mycompany.app.helpers.XmlParse;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 public class LoginScreen extends BaseScreen {
-    private String xmlPageSource = "";
+    
     public Map<String, String> elementMap = new HashMap<>();
     public String defaultUser = "alice";
     public String defaultPassword = "mypassword";
@@ -22,12 +21,14 @@ public class LoginScreen extends BaseScreen {
     public LoginScreen() {
         super();
         elementMap.put("identifier", "Login");
-        xmlPageSource = APM.getDriver().getPageSource();
-        pageSource = new XmlParse(xmlPageSource);
-        //validateScreen(elementMap.get("identifier"));
+        validateScreen(elementMap.get("identifier"));
         PageFactory.initElements(
             new AppiumFieldDecorator(APM.getDriver()), this);
     }
+
+    @AndroidFindBy(accessibility =  "TheApp")
+    @iOSXCUITFindBy(iOSNsPredicate = "name == \"TheApp\" AND label == \"TheApp\" AND type == \"XCUIElementTypeButton\"")
+    public WebElement backButton;
 
     @AndroidFindBy(accessibility = "username")
     @iOSXCUITFindBy(accessibility = "username")

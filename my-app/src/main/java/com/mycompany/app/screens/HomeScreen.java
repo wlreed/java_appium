@@ -15,15 +15,12 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 public class HomeScreen extends BaseScreen {
-    private String xmlPageSource = "";
     public Map<String, String> elementMap = new HashMap<>();
 
     public HomeScreen() {
         super();
         elementMap.put("identifier", "TheApp");
-        xmlPageSource = APM.getDriver().getPageSource();
-        pageSource = new XmlParse(xmlPageSource);
-        //validateScreen(elementMap.get("identifier"));
+        validateScreen(elementMap.get("identifier"));
         PageFactory.initElements(
             new AppiumFieldDecorator(APM.getDriver()), this);
     }

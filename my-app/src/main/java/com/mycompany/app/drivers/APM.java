@@ -25,7 +25,7 @@ public final class APM {
     private static final Logger LOG = LogManager.getLogger();
     private static AutoProps settings;
     private static String appPath = "";
-    private static final int MAX_DRIVER_TIMEOUT = 10;
+    private static final int MAX_DRIVER_TIMEOUT = 15;
 
     private APM() {
         settings = AutoProps.getInstance();
@@ -92,6 +92,7 @@ public final class APM {
                     settings.getSettingAsInteger("newCommandTimeout")))
                 .setPlatformVersion(
                     settings.configs.getProperty("platformVersion"))
+                .setMaxTypingFrequency(10)
                 .setApp(appPath);
     }
 
