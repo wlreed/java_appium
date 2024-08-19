@@ -26,13 +26,16 @@ public class LoginScreen extends BaseScreen {
             elementMap.put("identifier", "Login");
             elementMap.put("idExpression", "//android.widget.TextView/@text");
         }
-        validateScreen(elementMap.get("identifier"), elementMap.get("idExpression"));
+        validateScreen(elementMap.get(
+            "identifier"), elementMap.get("idExpression"));
         PageFactory.initElements(
             new AppiumFieldDecorator(APM.getDriver()), this);
     }
 
     @AndroidFindBy(accessibility =  "Navigate Up")
-    @iOSXCUITFindBy(iOSNsPredicate = "name == \"TheApp\" AND label == \"TheApp\" AND type == \"XCUIElementTypeButton\"")
+    @iOSXCUITFindBy(iOSNsPredicate =
+    "name == \"TheApp\" AND label == \"TheApp\" "
+    + "AND type == \"XCUIElementTypeButton\"")
     public WebElement backButton;
 
     @AndroidFindBy(accessibility = "username")

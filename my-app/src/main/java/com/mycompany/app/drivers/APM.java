@@ -84,6 +84,7 @@ public final class APM {
      * @return
      */
     private static XCUITestOptions xcuiTestOptions() {
+        final int typingFrequency = 10;
         return new XCUITestOptions()
                 .setDeviceName(settings.configs.getProperty("deviceName"))
                 .setAutomationName(
@@ -92,7 +93,7 @@ public final class APM {
                     settings.getSettingAsInteger("newCommandTimeout")))
                 .setPlatformVersion(
                     settings.configs.getProperty("platformVersion"))
-                .setMaxTypingFrequency(10)
+                .setMaxTypingFrequency(typingFrequency)
                 .setApp(appPath);
     }
 

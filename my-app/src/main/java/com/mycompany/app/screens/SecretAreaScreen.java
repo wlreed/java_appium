@@ -8,10 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.mycompany.app.drivers.APM;
 
-import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSXCUITBy;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 public class SecretAreaScreen extends BaseScreen {

@@ -14,6 +14,7 @@ public class BaseScreen {
     protected XmlParse pageSource;
     protected String driverType;
     protected String currScreen;
+    private static final int TIMEOUT = 2000;
 
     public BaseScreen() {
         getPageSource();
@@ -24,7 +25,7 @@ public class BaseScreen {
 
     public final void getPageSource() {
         try {
-            Thread.sleep(2000);
+            Thread.sleep(TIMEOUT);
         } catch (Exception e) {
             LOG.warn("Can't sleep!");
         }
@@ -32,13 +33,14 @@ public class BaseScreen {
         pageSource = new XmlParse(xmlPageSource);
     }
 
-    public final String sortClassName(String className) {
+    public final String sortClassName(final String className) {
         String[] names = className.split("\\.");
-        className = names[names.length - 1];
-        return className;
+        String newClassName = names[names.length - 1];
+        return newClassName;
     }
 
-    public final boolean validateScreen(final String identifier, final String expression) {
+    public final boolean validateScreen(
+        final String identifier, final String expression) {
         NodeList nodes = pageSource.xPath(
                 expression);
         for (int i = 0; i < nodes.getLength(); i++) {
@@ -51,7 +53,8 @@ public class BaseScreen {
         return false;
     }
 
-    public final boolean identifyXpathElement(String identifier, String tag) {
+    public final boolean identifyXpathElement(
+        final String identifier, final String tag) {
         NodeList nodes = findXpathElements(tag);
         for (int i = 0; i < nodes.getLength(); i++) {
             if (nodes.item(i).getNodeValue().equals(identifier)) {
@@ -62,7 +65,7 @@ public class BaseScreen {
         return false;
     }
 
-    public final NodeList findXpathElements(String tag) {
+    public final NodeList findXpathElements(final String tag) {
         NodeList nodes = pageSource.xPath(tag);
         return nodes;
     }

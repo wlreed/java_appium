@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.mycompany.app.drivers.APM;
-import com.mycompany.app.helpers.XmlParse;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -26,7 +25,8 @@ public class HomeScreen extends BaseScreen {
             elementMap.put("identifier", "TheApp");
             elementMap.put("idExpression", "//android.widget.TextView/@text");
         }
-        validateScreen(elementMap.get("identifier"), elementMap.get("idExpression"));
+        validateScreen(elementMap.get(
+            "identifier"), elementMap.get("idExpression"));
         PageFactory.initElements(
             new AppiumFieldDecorator(APM.getDriver()), this);
     }

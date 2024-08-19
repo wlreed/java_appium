@@ -6,7 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.mycompany.app.drivers.APM;
 
-import io.appium.java_client.AppiumBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
@@ -14,14 +13,14 @@ public class Alerts extends BaseScreen {
     public Alert alertDriver;
     public Alerts() {
         super();
-        if (driverType.equals("IOSDriver")) { 
+        if (driverType.equals("IOSDriver")) {
             alertDriver = APM.getDriver().switchTo().alert();
         }
         PageFactory.initElements(
             new AppiumFieldDecorator(APM.getDriver()), this);
     }
 
-    public void acceptAlert() {
+    public final void acceptAlert() {
         if (driverType.equals("IOSDriver")) {
             alertDriver.accept();
         } else if (driverType.equals(("AndroidDriver"))) {
@@ -29,7 +28,7 @@ public class Alerts extends BaseScreen {
         }
     }
 
-    public void dismissAlert() {
+    public final void dismissAlert() {
         if (driverType.equals("IOSDriver")) {
             alertDriver.dismiss();
         }
