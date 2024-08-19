@@ -19,8 +19,14 @@ public class HomeScreen extends BaseScreen {
 
     public HomeScreen() {
         super();
-        elementMap.put("identifier", "TheApp");
-        validateScreen(elementMap.get("identifier"));
+        if (driverType.equals("IOSDriver")) {
+            elementMap.put("identifier", "TheApp");
+            elementMap.put("idExpression", "//XCUIElementTypeStaticText/@name");
+        } else if (driverType.equals("AndroidDriver")) {
+            elementMap.put("identifier", "TheApp");
+            elementMap.put("idExpression", "//android.widget.TextView/@text");
+        }
+        validateScreen(elementMap.get("identifier"), elementMap.get("idExpression"));
         PageFactory.initElements(
             new AppiumFieldDecorator(APM.getDriver()), this);
     }

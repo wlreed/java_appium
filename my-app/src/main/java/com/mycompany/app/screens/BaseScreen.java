@@ -23,6 +23,11 @@ public class BaseScreen {
     }
 
     public final void getPageSource() {
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            LOG.warn("Can't sleep!");
+        }
         xmlPageSource = APM.getDriver().getPageSource();
         pageSource = new XmlParse(xmlPageSource);
     }
@@ -33,9 +38,9 @@ public class BaseScreen {
         return className;
     }
 
-    public final boolean validateScreen(final String identifier) {
+    public final boolean validateScreen(final String identifier, final String expression) {
         NodeList nodes = pageSource.xPath(
-                "//XCUIElementTypeStaticText/@name");
+                expression);
         for (int i = 0; i < nodes.getLength(); i++) {
             if (nodes.item(i).getNodeValue().equals(identifier)) {
                 LOG.info("Screen Validated");
@@ -72,9 +77,17 @@ public class BaseScreen {
     }
 
     public final boolean isAlert() {
-        NodeList nodes = pageSource.xPath("//XCUIElementTypeAlert/@type");
-        if (nodes.getLength() == 1) {
-            return true;
+        if (driverType.equals("IOSDriver")) {
+            NodeList nodes = pageSource.xPath("//XCUIElementTypeAlert/@type");
+            if (nodes.getLength() == 1) {
+                return true;
+            }
+        } else if (driverType.equals("AndroidDriver")) {
+            NodeList nodes = pageSource.xPath("//android.widget.ScrollView");
+            LOG.info("nodes length: " + nodes.getLength());
+            if (nodes.getLength() == 2) {
+                return true;
+            }
         }
         return false;
     }

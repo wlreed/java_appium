@@ -3,7 +3,6 @@ package com.mycompany.app;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.mycompany.app.drivers.APM;
 import com.mycompany.app.screens.Alerts;
 import com.mycompany.app.screens.HomeScreen;
 import com.mycompany.app.screens.LoginScreen;
@@ -30,7 +29,7 @@ public class LoginTest extends BaseTest {
         }
         ls.click(ls.backButton);
         hs = new HomeScreen();
-        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier")));
+        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier"), hs.elementMap.get("idExpression")));
     }
     @Test
     public final void userNameHasSpace() {
@@ -51,7 +50,7 @@ public class LoginTest extends BaseTest {
         }
         ls.click(ls.backButton);
         hs = new HomeScreen();
-        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier")));
+        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier"), hs.elementMap.get("idExpression")));
     }
     @Test
     public final void userNameEmpty() {
@@ -72,7 +71,7 @@ public class LoginTest extends BaseTest {
         }
         ls.click(ls.backButton);
         hs = new HomeScreen();
-        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier")));
+        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier"), hs.elementMap.get("idExpression")));
     }
     @Test
     public final void passwordEmpty() {
@@ -93,7 +92,7 @@ public class LoginTest extends BaseTest {
         }
         ls.click(ls.backButton);
         hs = new HomeScreen();
-        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier")));
+        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier"), hs.elementMap.get("idExpression")));
     }
     @Test
     public final void invalidUser() {
@@ -114,7 +113,7 @@ public class LoginTest extends BaseTest {
         }
         ls.click(ls.backButton);
         hs = new HomeScreen();
-        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier")));
+        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier"), hs.elementMap.get("idExpression")));
     }
     @Test
     public final void userNameTooLong() {
@@ -136,7 +135,7 @@ public class LoginTest extends BaseTest {
         }
         ls.click(ls.backButton);
         hs = new HomeScreen();
-        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier")));
+        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier"), hs.elementMap.get("idExpression")));
     }
     @Test
     public final void passwordTooLong() {
@@ -158,7 +157,7 @@ public class LoginTest extends BaseTest {
         }
         ls.click(ls.backButton);
         hs = new HomeScreen();
-        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier")));
+        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier"), hs.elementMap.get("idExpression")));
     }
     @Test
     public final void loginScreenTest() throws Exception {
@@ -178,6 +177,6 @@ public class LoginTest extends BaseTest {
         ls = new LoginScreen();
         ls.click(ls.backButton);
         hs = new HomeScreen();
-        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier")));
+        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier"), hs.elementMap.get("idExpression")));
     }
 }

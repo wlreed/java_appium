@@ -18,6 +18,6 @@ public class APMTest extends BaseTest {
     @Test
     public final void apmHomeScreenTest() {
         HomeScreen hs = new HomeScreen();
-        //Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier")));
+        Assert.assertTrue(hs.validateScreen(hs.elementMap.get("identifier"), hs.elementMap.get("idExpression")));
     }
 }

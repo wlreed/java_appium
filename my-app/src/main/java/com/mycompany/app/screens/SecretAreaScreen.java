@@ -36,7 +36,7 @@ public class SecretAreaScreen extends BaseScreen {
     @iOSXCUITFindBy(accessibility = "You are logged in as alice")
     public WebElement confirmAliceLogin;
 
-    @AndroidFindBy(accessibility = "Back")
+    @AndroidFindBy(accessibility = "Navigate Up")
     @iOSXCUITFindBy(accessibility = "Back")
     public WebElement backButton;
 }
