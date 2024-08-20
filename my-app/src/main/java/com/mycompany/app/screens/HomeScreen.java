@@ -30,11 +30,36 @@ public class HomeScreen extends BaseScreen {
         PageFactory.initElements(
             new AppiumFieldDecorator(APM.getDriver()), this);
     }
-    @AndroidFindBy(accessibility = "Login Screen")
-    @iOSXCUITFindBy(accessibility = "Login Screen")
-    public WebElement logInElement;
 
     @AndroidFindBy(accessibility = "Echo Box")
     @iOSXCUITFindBy(accessibility = "Echo Box")
     public WebElement echoBoxElement;
+
+    @AndroidFindBy(accessibility = "Login Screen")
+    @iOSXCUITFindBy(accessibility = "Login Screen")
+    public WebElement logInElement;
+
+    @AndroidFindBy(accessibility = "Clipboard Demo")
+    @iOSXCUITFindBy(accessibility = "Clipboard Demo")
+    public WebElement clipboardDemoElement;
+
+    @AndroidFindBy(accessibility = "Webview Demo")
+    @iOSXCUITFindBy(accessibility = "Webview Demo")
+    public WebElement webviewDemoElement;
+
+    @AndroidFindBy(accessibility = "List Demo")
+    @iOSXCUITFindBy(accessibility = "List Demo")
+    public WebElement listDemoElement;
+
+    @AndroidFindBy(accessibility = "Photo Demo")
+    @iOSXCUITFindBy(accessibility = "Photo Demo")
+    public WebElement photoDemoElement;
+
+    @AndroidFindBy(accessibility = "Geolocation Demo")
+    @iOSXCUITFindBy(accessibility = "Geolocation Demo")
+    public WebElement geoDemoElement;
+
+    @AndroidFindBy(accessibility = "Picker Demo")
+    @iOSXCUITFindBy(accessibility = "Picker Demo")
+    public WebElement pickerDemoElement;
 }

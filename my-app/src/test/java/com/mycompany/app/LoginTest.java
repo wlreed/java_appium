@@ -16,7 +16,7 @@ public class LoginTest extends BaseTest {
     private static final int MAX_CHAR = 200;
 
     @Test
-    public final void userAndPassEmptyTest() throws Exception {
+    public final void userAndPassEmptyTest() {
         LOG.info("Starting userAndPassEmptyTest");
         HomeScreen hs = new HomeScreen();
         hs.click(hs.logInElement);
@@ -168,7 +168,7 @@ public class LoginTest extends BaseTest {
             "identifier"), hs.elementMap.get("idExpression")));
     }
     @Test
-    public final void loginScreenTest() throws Exception {
+    public final void loginScreenTest() {
         LOG.info("Starting loginScreenTest");
         HomeScreen hs = new HomeScreen();
         hs.click(hs.logInElement);

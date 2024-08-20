@@ -72,6 +72,11 @@ public class BaseScreen {
 
     public final void click(final WebElement element) {
         LOG.debug("Clicking " + element.getText() + " element");
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            LOG.warn("Could not sleep!");
+        }
         element.click();
     }
 
