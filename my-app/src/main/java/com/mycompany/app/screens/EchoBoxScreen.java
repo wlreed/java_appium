@@ -14,7 +14,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 public class EchoBoxScreen extends BaseScreen {
     public Map<String, String> elementMap = new HashMap<>();
-    
+
     public EchoBoxScreen() {
         super();
         if (driverType.equals("IOSDriver")) {
@@ -36,7 +36,7 @@ public class EchoBoxScreen extends BaseScreen {
     + "AND type == \"XCUIElementTypeButton\"")
     public WebElement backButton;
 
-    @AndroidFindBy(id = "messageInput")
+    @AndroidFindBy(accessibility = "messageInput")
     @iOSXCUITFindBy(id = "messageInput")
     public WebElement messageInputField;
 
@@ -44,7 +44,8 @@ public class EchoBoxScreen extends BaseScreen {
     @iOSXCUITFindBy(accessibility = "messageSaveBtn")
     public WebElement messageSaveButton;
 
-    @AndroidFindBy(accessibility = "savedMessage")
+    @AndroidFindBy(
+        xpath = "//android.widget.TextView[@resource-id=\"savedMessage\"]")
     @iOSXCUITFindBy(accessibility = "savedMessage")
     public WebElement savedMessageElement;
 }

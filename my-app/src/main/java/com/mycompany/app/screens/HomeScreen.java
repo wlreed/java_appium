@@ -47,6 +47,10 @@ public class HomeScreen extends BaseScreen {
     @iOSXCUITFindBy(accessibility = "Webview Demo")
     public WebElement webviewDemoElement;
 
+    @AndroidFindBy(accessibility = "Dual Webview Demo")
+    @iOSXCUITFindBy(accessibility = "Dual Webview Demo")
+    public WebElement dualWebviewDemoElement;
+
     @AndroidFindBy(accessibility = "List Demo")
     @iOSXCUITFindBy(accessibility = "List Demo")
     public WebElement listDemoElement;
@@ -62,4 +66,7 @@ public class HomeScreen extends BaseScreen {
     @AndroidFindBy(accessibility = "Picker Demo")
     @iOSXCUITFindBy(accessibility = "Picker Demo")
     public WebElement pickerDemoElement;
+
+    @AndroidFindBy(accessibility = "Verify Phone Number")
+    public WebElement verifyPhoneNumberElement;
 }

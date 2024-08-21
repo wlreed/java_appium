@@ -2,6 +2,7 @@ package com.mycompany.app.screens;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.w3c.dom.NodeList;
 
@@ -73,7 +74,7 @@ public class BaseScreen {
     public final void click(final WebElement element) {
         LOG.debug("Clicking " + element.getText() + " element");
         try {
-            Thread.sleep(1000);
+            Thread.sleep(TIMEOUT);
         } catch (Exception e) {
             LOG.warn("Could not sleep!");
         }
@@ -82,6 +83,14 @@ public class BaseScreen {
 
     public final void sendkeys(final WebElement element, final String string) {
         element.sendKeys(string);
+    }
+
+    public final void dismissKeyboard() {
+        if (driverType.equals("AndroidDriver")) {
+            APM.getDriver().navigate().back();
+        } else if (driverType.equals("IOSDriver")) {
+            click(APM.getDriver().findElement(By.name("Return")));
+        }
     }
 
     public final boolean isAlert() {
