@@ -8,7 +8,6 @@ import static io.appium.java_client.service.local.flags.GeneralServerFlag.SESSIO
 import static io.appium.java_client.service.local.flags.GeneralServerFlag.LOG_LEVEL;
 import static io.appium.java_client.service.local.flags.GeneralServerFlag.USE_DRIVERS;
 
-
 import java.io.File;
 
 import org.apache.logging.log4j.LogManager;
@@ -30,6 +29,7 @@ public class APMServer {
     /**
      * startServer
      * Starts the server according to the platform given
+     * 
      * @param platformName
      */
     public static void startServer(final String platformName) {
@@ -37,18 +37,18 @@ public class APMServer {
 
         if (platformName.equalsIgnoreCase("android")) {
             builder.withIPAddress("127.0.0.1")
-                .withArgument(BASEPATH, "/wd/hub")
-                .withArgument(SESSION_OVERRIDE)
-                .withArgument(LOG_LEVEL, "warn")
-                .withArgument(USE_DRIVERS, "uiautomator2")
-                .withLogFile(new File("results/AppiumAndroidServer.log"));
+                    .withArgument(BASEPATH, "/wd/hub")
+                    .withArgument(SESSION_OVERRIDE)
+                    .withArgument(LOG_LEVEL, "warn")
+                    .withArgument(USE_DRIVERS, "uiautomator2")
+                    .withLogFile(new File("results/AppiumAndroidServer.log"));
         } else if (platformName.equalsIgnoreCase("ios")) {
             builder.withIPAddress("127.0.0.1")
-                .withArgument(BASEPATH, "/wd/hub")
-                .withArgument(SESSION_OVERRIDE)
-                .withArgument(LOG_LEVEL, "warn")
-                .withArgument(USE_DRIVERS, "xcuitest")
-                .withLogFile(new File("results/AppiumIOSServer.log"));
+                    .withArgument(BASEPATH, "/wd/hub")
+                    .withArgument(SESSION_OVERRIDE)
+                    .withArgument(LOG_LEVEL, "debug")
+                    .withArgument(USE_DRIVERS, "xcuitest")
+                    .withLogFile(new File("results/AppiumIOSServer.log"));
         }
 
         service = AppiumDriverLocalService.buildService(builder);
@@ -58,7 +58,7 @@ public class APMServer {
 
     /**
      * stopServer
-     * Stops the Appium Server.  Throws error on failure.
+     * Stops the Appium Server. Throws error on failure.
      */
     public static void stopServer() {
         try {
