@@ -18,14 +18,14 @@ public class EchoBoxScreen extends BaseScreen {
     public EchoBoxScreen() {
         super();
         if (driverType.equals("IOSDriver")) {
-            elementMap.put("identifier", "TheApp");
+            elementMap.put("identifier", "Echo Screen");
             elementMap.put("idExpression", "//XCUIElementTypeStaticText/@name");
         } else if (driverType.equals("AndroidDriver")) {
-            elementMap.put("identifier", "TheApp");
+            elementMap.put("identifier", "Echo Screen");
             elementMap.put("idExpression", "//android.widget.TextView/@text");
         }
-        //validateScreen(elementMap.get(
-            //"identifier"), elementMap.get("idExpression"));
+        validateScreen(elementMap.get(
+            "identifier"), elementMap.get("idExpression"));
         PageFactory.initElements(
             new AppiumFieldDecorator(APM.getDriver()), this);
     }

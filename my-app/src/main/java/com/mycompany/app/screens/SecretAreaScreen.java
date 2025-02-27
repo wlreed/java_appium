@@ -18,6 +18,15 @@ public class SecretAreaScreen extends BaseScreen {
     public SecretAreaScreen() {
         super();
         elementMap.put("alice", "You are logged in as alice");
+        if (driverType.equals("IOSDriver")) {
+            elementMap.put("identifier", "Secret Area");
+            elementMap.put("idExpression", "//XCUIElementTypeStaticText/@name");
+        } else if (driverType.equals("AndroidDriver")) {
+            elementMap.put("identifier", "Secret Area");
+            elementMap.put("idExpression", "//android.widget.TextView/@text");
+        }
+        validateScreen(elementMap.get(
+            "identifier"), elementMap.get("idExpression"));
         PageFactory.initElements(
             new AppiumFieldDecorator(APM.getDriver()), this);
     }
